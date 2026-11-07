@@ -91,7 +91,14 @@ The SmartCart AI interaction model replaces traditional keyword searches with a 
 
 The following flowchart illustrates how a shopper's natural language input moves across understanding, multi-agent evaluation, data sources, and final transaction completion:
 
-```mermaid
+<p align="center">
+  <img src="assets/workflow-flowchart.png" alt="SmartCart AI End-to-End Workflow Flowchart" width="100%">
+</p>
+
+<details>
+<summary>🔍 <b>View Mermaid Diagram Specification</b></summary>
+
+```text
 flowchart TD
     classDef userStyle fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
     classDef agentStyle fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#f8fafc
@@ -147,6 +154,7 @@ flowchart TD
     H --> I
     I --> J
 ```
+</details>
 
 ---
 
@@ -155,7 +163,14 @@ flowchart TD
 > [!IMPORTANT]
 > **Proposed System Design:** This architecture represents the target design for SmartCart AI. It outlines the modular separation between frontend interfaces, asynchronous multi-agent orchestration, LLM reasoning pipelines, data persistence, and external payment integration.
 
-```mermaid
+<p align="center">
+  <img src="assets/system-architecture.png" alt="SmartCart AI Proposed System Architecture" width="100%">
+</p>
+
+<details>
+<summary>🔍 <b>View Mermaid Architecture Specification</b></summary>
+
+```text
 flowchart TD
     classDef clientLayer fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
     classDef apiLayer fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#f8fafc
@@ -252,6 +267,7 @@ flowchart TD
     PayPal_SDK --> PayPal_Webhooks
     PayPal_Webhooks --> API_GW
 ```
+</details>
 
 ---
 
@@ -259,7 +275,14 @@ flowchart TD
 
 How do the proposed agents collaborate asynchronously without deadlocks or hallucinated advice? The sequence diagram below maps out the communication flow:
 
-```mermaid
+<p align="center">
+  <img src="assets/agent-interaction.png" alt="SmartCart AI Multi-Agent Interaction Sequence Diagram" width="100%">
+</p>
+
+<details>
+<summary>🔍 <b>View Mermaid Sequence Specification</b></summary>
+
+```text
 sequenceDiagram
     autonumber
     actor Shopper as Shopper
@@ -305,6 +328,7 @@ sequenceDiagram
     PayPal-->>GW: Webhook PAYMENT.CAPTURE.COMPLETED
     GW->>UI: Render Order Confirmation and Tracking
 ```
+</details>
 
 ---
 
