@@ -93,59 +93,59 @@ The following flowchart illustrates how a shopper's natural language input moves
 
 ```mermaid
 flowchart TD
-    classDef userStyle fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc;
-    classDef agentStyle fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#f8fafc;
-    classDef externalStyle fill:#0f2e22,stroke:#34d399,stroke-width:2px,color:#f8fafc;
-    classDef decisionStyle fill:#312e81,stroke:#c084fc,stroke-width:2px,color:#f8fafc;
-    classDef paypalStyle fill:#002447,stroke:#0070ba,stroke-width:2px,color:#f8fafc;
+    classDef userStyle fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+    classDef agentStyle fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#f8fafc
+    classDef externalStyle fill:#0f2e22,stroke:#34d399,stroke-width:2px,color:#f8fafc
+    classDef decisionStyle fill:#312e81,stroke:#c084fc,stroke-width:2px,color:#f8fafc
+    classDef paypalStyle fill:#002447,stroke:#0070ba,stroke-width:2px,color:#f8fafc
 
-    subgraph Phase1["1. User Query &amp; Intent Extraction"]
-        A["👤 User Input<br/>(Natural-Language Query)"]:::userStyle
-        B["🧠 Intent Understanding Agent<br/>(Extract Budget, Features &amp; Needs)"]:::agentStyle
+    subgraph Phase1["1. User Query and Intent Extraction"]
+        A["User Input - Natural Language Query"]:::userStyle
+        B["Intent Understanding Agent - Extract Budget and Features"]:::agentStyle
     end
 
-    subgraph Phase2["2. Orchestration &amp; Multi-Agent Dispatch"]
-        C["⚡ AI Orchestrator<br/>(Coordinates Parallel Agent Pipeline)"]:::agentStyle
-        D1["🔍 Product Discovery Agent<br/>(Semantic &amp; Spec Search)"]:::agentStyle
-        D2["🏷️ Price &amp; Coupon Agent<br/>(Deal Scraping &amp; Discount Mining)"]:::agentStyle
-        D3["🛡️ Review Sentiment Agent<br/>(Trust Scoring &amp; Fake Filtering)"]:::agentStyle
+    subgraph Phase2["2. Orchestration and Multi-Agent Dispatch"]
+        C["AI Orchestrator - Parallel Pipeline Coordinator"]:::agentStyle
+        D1["Product Discovery Agent - Semantic Search"]:::agentStyle
+        D2["Price and Coupon Agent - Deal Scraping"]:::agentStyle
+        D3["Review Sentiment Agent - Trust Scoring"]:::agentStyle
     end
 
-    subgraph Phase3["3. External Catalogs &amp; Knowledge Repositories"]
-        E1[("📦 Product Catalog &amp;<br/>Vector Embeddings DB")]:::externalStyle
-        E2["🌐 Live Retail &amp;<br/>Promo Code APIs"]:::externalStyle
-        E3["⭐ Buyer Reviews &amp;<br/>Sentiment Sources"]:::externalStyle
+    subgraph Phase3["3. External Catalogs and Repositories"]
+        E1[("Product Catalog and Vector DB")]:::externalStyle
+        E2["Live Retail and Promo Code APIs"]:::externalStyle
+        E3["Buyer Reviews and Sentiment Sources"]:::externalStyle
     end
 
-    subgraph Phase4["4. Cart Synthesis &amp; Trade-off Evaluation"]
-        F["⚖️ Multi-Dimensional Comparison Matrix<br/>(Specs, Pricing, Real Durability)"]:::decisionStyle
-        G["🛒 SmartCart Optimization Engine<br/>(Auto-Coupon Stacking &amp; Bundling)"]:::agentStyle
-        H["📊 Ranked Recommendations Card<br/>(Top Match &amp; Alternative Options)"]:::decisionStyle
+    subgraph Phase4["4. Cart Synthesis and Optimization"]
+        F["Multi-Dimensional Comparison Matrix"]:::decisionStyle
+        G["SmartCart Optimization Engine"]:::agentStyle
+        H["Ranked Recommendations Card"]:::decisionStyle
     end
 
-    subgraph Phase5["5. Decision &amp; Frictionless Checkout"]
-        I["✅ User Informed Shopping Decision<br/>(Review Trade-offs &amp; Net Savings)"]:::userStyle
-        J["💳 1-Click PayPal Checkout<br/>(Proposed Sandbox Payment &amp; Capture)"]:::paypalStyle
+    subgraph Phase5["5. Decision and Checkout"]
+        I["User Informed Shopping Decision"]:::userStyle
+        J["1-Click PayPal Checkout - Sandbox"]:::paypalStyle
     end
 
     A --> B
     B --> C
-    C -->|Query Embeddings| D1
-    C -->|Budget &amp; Stores| D2
-    C -->|Product IDs| D3
+    C --> D1
+    C --> D2
+    C --> D3
     
-    D1 <--> E1
-    D2 <--> E2
-    D3 <--> E3
+    D1 --- E1
+    D2 --- E2
+    D3 --- E3
 
-    D1 -->|Candidate Set| F
-    D2 -->|Active Deals &amp; Codes| G
-    D3 -->|Confidence &amp; Sentiment Scores| F
+    D1 --> F
+    D2 --> G
+    D3 --> F
 
     F --> G
     G --> H
     H --> I
-    I -->|Initiate Checkout| J
+    I --> J
 ```
 
 ---
@@ -157,82 +157,99 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    classDef clientLayer fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc;
-    classDef apiLayer fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#f8fafc;
-    classDef agentLayer fill:#311042,stroke:#c084fc,stroke-width:2px,color:#f8fafc;
-    classDef modelLayer fill:#142d4c,stroke:#60a5fa,stroke-width:2px,color:#f8fafc;
-    classDef dataLayer fill:#062d2b,stroke:#2dd4bf,stroke-width:2px,color:#f8fafc;
-    classDef extLayer fill:#1c1917,stroke:#fbbf24,stroke-width:2px,color:#f8fafc;
-    classDef paypalLayer fill:#001c3d,stroke:#0070ba,stroke-width:2px,color:#f8fafc;
+    classDef clientLayer fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+    classDef apiLayer fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#f8fafc
+    classDef agentLayer fill:#311042,stroke:#c084fc,stroke-width:2px,color:#f8fafc
+    classDef modelLayer fill:#142d4c,stroke:#60a5fa,stroke-width:2px,color:#f8fafc
+    classDef dataLayer fill:#062d2b,stroke:#2dd4bf,stroke-width:2px,color:#f8fafc
+    classDef extLayer fill:#1c1917,stroke:#fbbf24,stroke-width:2px,color:#f8fafc
+    classDef paypalLayer fill:#001c3d,stroke:#0070ba,stroke-width:2px,color:#f8fafc
 
-    subgraph Client["1. Frontend / User Interface (Proposed)"]
-        UI_Web["Conversational Web Client<br/>(Next.js 14 / React &amp; Tailwind CSS)"]:::clientLayer
-        UI_Chat["Real-Time Streaming Chat Drawer<br/>(Markdown, Product Cards, Telemetry)"]:::clientLayer
-        UI_Matrix["Interactive Product Matrix<br/>(Side-by-Side Trade-off Visualizer)"]:::clientLayer
-        UI_Cart["Dynamic SmartCart Drawer<br/>(Savings Ledger &amp; Promo Badges)"]:::clientLayer
+    subgraph Client["1. Frontend and User Interface (Proposed)"]
+        UI_Web["Conversational Web Client - Next.js 14 and Tailwind"]:::clientLayer
+        UI_Chat["Real-Time Streaming Chat Drawer"]:::clientLayer
+        UI_Matrix["Interactive Product Matrix"]:::clientLayer
+        UI_Cart["Dynamic SmartCart Drawer"]:::clientLayer
     end
 
-    subgraph Gateway["2. Backend Gateway &amp; API Layer (Proposed)"]
-        API_GW["FastAPI / Python Gateway<br/>(Asynchronous REST Endpoints)"]:::apiLayer
-        WS_Handler["WebSocket Session Hub<br/>(Bidirectional Agent Streaming)"]:::apiLayer
-        Session_Mgr["Session &amp; Preference Store<br/>(Context Window Management)"]:::apiLayer
+    subgraph Gateway["2. Backend Gateway and API Layer (Proposed)"]
+        API_GW["FastAPI Python Gateway - REST Endpoints"]:::apiLayer
+        WS_Handler["WebSocket Session Hub - Agent Streaming"]:::apiLayer
+        Session_Mgr["Session and Preference Store"]:::apiLayer
     end
 
     subgraph Agents["3. Multi-Agent Orchestration Engine (Proposed)"]
-        Orchestrator["Agent Master Coordinator<br/>(LangGraph / StateGraph Orchestration)"]:::agentLayer
-        IntentAgent["Intent Understanding Agent<br/>(Extract Filters, Budget, Priority)"]:::agentLayer
-        DiscoveryAgent["Product Discovery Agent<br/>(Catalog Retrieval &amp; Semantic Matching)"]:::agentLayer
-        PriceAgent["Price &amp; Coupon Tracker Agent<br/>(Discount Validation &amp; Stacking)"]:::agentLayer
-        ReviewAgent["Review Sentiment Agent<br/>(Deceptive Review Detection)"]:::agentLayer
-        CartAgent["Cart Optimization Agent<br/>(Bundle Perks &amp; Threshold Savings)"]:::agentLayer
-        CheckoutAgent["Payment &amp; Order Agent<br/>(PayPal Order Dispatch &amp; Webhooks)"]:::agentLayer
+        Orchestrator["Agent Master Coordinator - LangGraph StateGraph"]:::agentLayer
+        IntentAgent["Intent Understanding Agent"]:::agentLayer
+        DiscoveryAgent["Product Discovery Agent"]:::agentLayer
+        PriceAgent["Price and Coupon Tracker Agent"]:::agentLayer
+        ReviewAgent["Review Sentiment Agent"]:::agentLayer
+        CartAgent["Cart Optimization Agent"]:::agentLayer
+        CheckoutAgent["Payment and Order Agent"]:::agentLayer
     end
 
-    subgraph LLM["4. LLM &amp; Embedding Reasoning Layer (Proposed)"]
-        Gemini["Foundation LLMs<br/>(Google Gemini 1.5 Pro / Flash)"]:::modelLayer
-        Embeddings["Embedding Engine<br/>(text-embedding-004)"]:::modelLayer
-        Structured["JSON Schema &amp; Structured Outputs<br/>(Pydantic Type Guards)"]:::modelLayer
+    subgraph LLM["4. LLM and Reasoning Layer (Proposed)"]
+        Gemini["Foundation LLMs - Gemini 1.5 Pro and Flash"]:::modelLayer
+        Embeddings["Embedding Engine - text-embedding-004"]:::modelLayer
+        Structured["JSON Schema and Structured Outputs"]:::modelLayer
     end
 
-    subgraph Storage["5. Persistence &amp; Caching Layer (Proposed)"]
-        DB_Relational[("PostgreSQL<br/>(User Carts, Historical Orders)")]:::dataLayer
-        DB_Vector[("Vector Database<br/>(pgvector / Qdrant)")]:::dataLayer
-        DB_Cache[("Redis Cache<br/>(Real-Time Agent Session State)")]:::dataLayer
+    subgraph Storage["5. Persistence and Caching Layer (Proposed)"]
+        DB_Relational[("PostgreSQL - Carts and Orders")]:::dataLayer
+        DB_Vector[("Vector Database - pgvector and Qdrant")]:::dataLayer
+        DB_Cache[("Redis Cache - Session State")]:::dataLayer
     end
 
-    subgraph ExternalServices["6. Product Data &amp; External Feeds (Proposed)"]
-        Ext_Catalog["Retail Product Catalogs<br/>(Mock APIs &amp; E-commerce Feeds)"]:::extLayer
-        Ext_Coupons["Deal &amp; Coupon Crawlers<br/>(Promo Code Repositories)"]:::extLayer
-        Ext_Reviews["Aggregated Review Datasets<br/>(Verified Purchaser Feedback)"]:::extLayer
+    subgraph ExternalServices["6. Product Data and External Feeds (Proposed)"]
+        Ext_Catalog["Retail Product Catalogs - Mock APIs"]:::extLayer
+        Ext_Coupons["Deal and Coupon Crawlers"]:::extLayer
+        Ext_Reviews["Aggregated Review Datasets"]:::extLayer
     end
 
     subgraph PaymentIntegration["7. Payment Integration (Proposed Sandbox)"]
-        PayPal_SDK["PayPal Orders v2 API<br/>(Sandbox Authentication &amp; Create Order)"]:::paypalLayer
-        PayPal_Webhooks["PayPal Webhook Receiver<br/>(Payment Capture &amp; Cart Clearance)"]:::paypalLayer
+        PayPal_SDK["PayPal Orders v2 API - Sandbox"]:::paypalLayer
+        PayPal_Webhooks["PayPal Webhook Receiver"]:::paypalLayer
     end
 
-    UI_Web --> UI_Chat & UI_Matrix & UI_Cart
-    UI_Chat & UI_Matrix & UI_Cart <-->|REST &amp; WebSockets| API_GW
-    API_GW <--> WS_Handler
-    API_GW <--> Session_Mgr
+    UI_Web --> UI_Chat
+    UI_Web --> UI_Matrix
+    UI_Web --> UI_Cart
 
-    WS_Handler <--> Orchestrator
-    Orchestrator <--> IntentAgent & DiscoveryAgent & PriceAgent & ReviewAgent & CartAgent & CheckoutAgent
+    UI_Chat --> API_GW
+    UI_Matrix --> API_GW
+    UI_Cart --> API_GW
 
-    IntentAgent & DiscoveryAgent & PriceAgent & ReviewAgent & CartAgent <--> Gemini
-    Gemini <--> Structured
-    DiscoveryAgent <--> Embeddings
+    API_GW --> WS_Handler
+    API_GW --> Session_Mgr
 
-    DiscoveryAgent <--> DB_Vector
-    API_GW & Session_Mgr <--> DB_Relational
-    WS_Handler <--> DB_Cache
+    WS_Handler --> Orchestrator
+    Orchestrator --> IntentAgent
+    Orchestrator --> DiscoveryAgent
+    Orchestrator --> PriceAgent
+    Orchestrator --> ReviewAgent
+    Orchestrator --> CartAgent
+    Orchestrator --> CheckoutAgent
 
-    DiscoveryAgent <--> Ext_Catalog
-    PriceAgent <--> Ext_Coupons
-    ReviewAgent <--> Ext_Reviews
+    IntentAgent --> Gemini
+    DiscoveryAgent --> Gemini
+    PriceAgent --> Gemini
+    ReviewAgent --> Gemini
+    CartAgent --> Gemini
 
-    CheckoutAgent <--> PayPal_SDK
-    PayPal_SDK <--> PayPal_Webhooks
+    Gemini --> Structured
+    DiscoveryAgent --> Embeddings
+
+    DiscoveryAgent --> DB_Vector
+    API_GW --> DB_Relational
+    Session_Mgr --> DB_Relational
+    WS_Handler --> DB_Cache
+
+    DiscoveryAgent --> Ext_Catalog
+    PriceAgent --> Ext_Coupons
+    ReviewAgent --> Ext_Reviews
+
+    CheckoutAgent --> PayPal_SDK
+    PayPal_SDK --> PayPal_Webhooks
     PayPal_Webhooks --> API_GW
 ```
 
@@ -245,48 +262,48 @@ How do the proposed agents collaborate asynchronously without deadlocks or hallu
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Shopper as 👤 Shopper
-    participant UI as 🖥️ Conversational UI
-    participant GW as 🚪 API Gateway
-    participant Orch as ⚡ Master Orchestrator
-    participant Intent as 🧠 Intent Agent
-    participant Discovery as 🔍 Discovery Agent
-    participant Price as 🏷️ Price Agent
-    participant Review as 🛡️ Review Agent
-    participant Cart as 🛒 Cart Optimizer
-    participant PayPal as 💳 PayPal Sandbox
+    actor Shopper as Shopper
+    participant UI as Conversational UI
+    participant GW as API Gateway
+    participant Orch as Master Orchestrator
+    participant Intent as Intent Agent
+    participant Discovery as Discovery Agent
+    participant Price as Price Agent
+    participant Review as Review Agent
+    participant Cart as Cart Optimizer
+    participant PayPal as PayPal Sandbox
 
-    Shopper->>UI: "Need ANC travel headphones under $250 with 30h+ battery"
+    Shopper->>UI: Need ANC travel headphones under 250 dollars with 30h battery
     UI->>GW: POST /api/chat/stream
-    GW->>Orch: Spawn shopping session & dispatch prompt
+    GW->>Orch: Spawn shopping session and dispatch prompt
     
     Orch->>Intent: Extract structured shopping constraints
-    Intent-->>Orch: {category: "Headphones", anc: true, max_budget: 250, min_battery_hrs: 30}
+    Intent-->>Orch: Return category, ANC true, max budget 250, battery 30h
 
-    par Concurrent Analysis
+    par Candidate Search
         Orch->>Discovery: Query vector store for candidates
-        Discovery-->>Orch: Returns top 5 semantic matches
-    and Pricing & Deals
-        Orch->>Price: Crawl active discounts & promo codes
-        Price-->>Orch: Found valid coupon: 'FLYTECH25' (-$25)
-    and Trust & Sentiment
+        Discovery-->>Orch: Return top 5 semantic matches
+    and Pricing and Deals
+        Orch->>Price: Crawl active discounts and promo codes
+        Price-->>Orch: Found valid coupon code FLYTECH25 saving 25 dollars
+    and Trust and Sentiment
         Orch->>Review: Analyze authentic buyer reviews
-        Review-->>Orch: Filter fake ratings; score comfort at 96%
+        Review-->>Orch: Filter fake ratings and score comfort at 96 percent
     end
 
-    Orch->>Cart: Calculate trade-offs, bundle discounts & budget savings
-    Cart-->>Orch: Top match: AeroQuiet Pro ($199.00 vs $269 MSRP)
+    Orch->>Cart: Calculate trade-offs and bundle discounts
+    Cart-->>Orch: Top match selected AeroQuiet Pro at 199 dollars
     
-    Orch->>GW: Stream comparison matrix & dynamic cart update
-    GW->>UI: Render live product card, savings ledger & recommendations
+    Orch->>GW: Stream comparison matrix and cart update
+    GW->>UI: Render live product card and savings ledger
     
-    Shopper->>UI: Clicks "Pay with PayPal"
+    Shopper->>UI: Click Pay with PayPal
     UI->>GW: POST /api/checkout/create-order
-    GW->>PayPal: Create Order ($174.00 net after discount)
+    GW->>PayPal: Create Order 174 dollars net after discount
     PayPal-->>UI: Launch PayPal Checkout Approval Modal
     Shopper->>PayPal: Authorize payment securely
-    PayPal-->>GW: Webhook: PAYMENT.CAPTURE.COMPLETED
-    GW->>UI: Render Order Confirmation & Shipping Tracking
+    PayPal-->>GW: Webhook PAYMENT.CAPTURE.COMPLETED
+    GW->>UI: Render Order Confirmation and Tracking
 ```
 
 ---
