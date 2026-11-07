@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/hero-banner.svg" alt="SmartCart AI - Your Intelligent Shopping Companion" width="100%">
+  <img src="assets/hero-banner.png" alt="SmartCart AI - Your Intelligent Shopping Companion" width="100%">
 </p>
 
 <p align="center">
@@ -49,7 +49,7 @@ Online shoppers are overwhelmed by information overload: thousands of conflictin
 The SmartCart AI interaction model replaces traditional keyword searches with a continuous, 4-stage intelligent commerce pipeline:
 
 <p align="center">
-  <img src="assets/smartcart-concept.svg" alt="SmartCart AI Conceptual Flow" width="100%">
+  <img src="assets/smartcart-concept.png" alt="SmartCart AI Conceptual Flow" width="100%">
 </p>
 
 ### The 4 Pillars of SmartCart AI:
@@ -396,7 +396,7 @@ The following frameworks and services are currently proposed for the hackathon p
 > **Pre-Implementation Mockup:** The interface below is a conceptual wireframe created to illustrate the planned user experience. The application is currently under design and development.
 
 <p align="center">
-  <img src="assets/conceptual-ui-mockup.svg" alt="SmartCart AI Conceptual UI Wireframe" width="100%">
+  <img src="assets/conceptual-ui-mockup.png" alt="SmartCart AI Conceptual UI Wireframe" width="100%">
 </p>
 
 ### Walkthrough of the Proposed Interface:
