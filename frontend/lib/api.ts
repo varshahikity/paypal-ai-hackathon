@@ -30,7 +30,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
 }
 
 export const api = {
-  search: (sessionId: string, query: string, couponCode: string | null) =>
+  search: (sessionId: string, query: string, couponCode: string | null = null) =>
     request<SearchResult>("/api/search", {
       method: "POST",
       body: JSON.stringify({ session_id: sessionId, query, coupon_code: couponCode }),
@@ -44,10 +44,11 @@ export const api = {
 
   createOrder: (
     sessionId: string,
-    productId: string,
+    productId: string | null,
     couponCode: string | null,
     approved: boolean,
     idempotencyKey: string,
+    productIds?: string[],
   ) =>
     request<CreatedOrder>("/api/checkout/create-order", {
       method: "POST",
@@ -55,6 +56,7 @@ export const api = {
       body: JSON.stringify({
         session_id: sessionId,
         product_id: productId,
+        product_ids: productIds,
         coupon_code: couponCode,
         approved,
       }),
